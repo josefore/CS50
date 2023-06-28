@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+            document.addEventListener("DOMContentLoaded", function()
+            {
+                let feedback1 = document.querySelectorAll('.feedback1');
+                // Correct answer, change background color to green
+                let correct = document.querySelectorAll('.correct');
+                // When clicked, run function...
+                for (let i = 0; i < correct.length; i++)
+                {
+                    correct[i].addEventListener('click', function()
+                    {
+                        correct[i].style.backgroundColor = 'green';
+
+                        // Change color of feedback1 if correct to green?
+                        feedback1[i].style.color = 'green';
+                        // Change value of feedback1 to 'Correct!'
+                        feedback1[i].innerHTML = 'Correct!';
+                    });
+                };
+
+                // Wrong answer, change background color to red
+                let incorrect = document.querySelectorAll('.incorrect');
+                // For each incorrect answer, run function (only applies to selected option)
+                for (let i = 0; i < incorrect.length; i++)
+                {
+                    incorrect[i].addEventListener('click', function()
+                    {
+                        incorrect[i].style.backgroundColor = 'red';
+
+                        // HARDCODE set different feedback assignments
+                        ass = 0;
+                        if (i < 4) {ass = 0} else {ass = 1};
+                        // Change color of feedback1 if incorrect to red?
+                        feedback1[ass].style.color = 'red';
+                        // Change value of feedback1 to 'Incorrect!'
+                        feedback1[ass].innerHTML = 'Incorrect!';
+                    });
+                };
+
+                let input = document.querySelectorAll('input');
+                // Free response
+                document.querySelector('#check1').addEventListener('click', function()
+                {
+                   let feedback2 = document.querySelector('#feedback2')
+                   if (input[0].value.toUpperCase().trim() === 'LEAVES OF GRASS')
+                   {
+                       input[0].style.backgroundColor = 'green';
+                       feedback2.style.color = 'green';
+                       feedback2.innerHTML = 'Correct!';
+                   }
+                   else
+                   {
+                       input[0].style.backgroundColor = 'red';
+                       feedback2.style.color = 'red';
+                       feedback2.innerHTML = 'Inorrect!';
+                   }
+                });
+
+
+                document.querySelector('#check2').addEventListener('click', function()
+                {
+                   let feedback2 = document.querySelector('#feedback3')
+                   if (input[1].value.toUpperCase().trim() === 'ZAFIRO AÑEJO' ||
+                       input[1].value.toUpperCase().trim() === 'ZAFIRO ANEJO')
+                   {
+                       input[1].style.backgroundColor = 'green';
+                       feedback2.style.color = 'green';
+                       feedback2.innerHTML = 'Correct!';
+                   }
+                   else
+                   {
+                       input[1].style.backgroundColor = 'red';
+                       feedback2.style.color = 'red';
+                       feedback2.innerHTML = 'Inorrect!';
+                   }
+                });
+            });
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>
+                    What is the real name of Saul Goodman?<br>
+                    <p class="feedback1"></p>
+                    <button class="buttons incorrect">Ted Beneke</button>
+                    <button class="buttons incorrect">Werner Ziegler</button>
+                    <button class="buttons incorrect">Jack Welker</button>
+                    <button class="buttons correct">James McGill</button>
+                    <button class="buttons incorrect">Howard Hamlin</button>
+                    <br><br><br><br>
+
+
+                    What is the key phrase you need to say to Ed Galbraith when you want to get 'disappeared'?<br>
+                    <p class="feedback1"></p>
+                    <button class="buttons incorrect">I need a special act for my daughter's 7th birthday party</button>
+                    <button class="buttons incorrect">The sunset over Sandia Peak is like a glass of pink wine</button>
+                    <button class="buttons correct">I need a dust filter for a Hoover Max Extract® 60 Pressure Pro™</button>
+                </h3>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>
+                    What is the title of the book of poems written by Walt Whitman that Gael gave to Walter White?
+                    <p id="feedback2"></p>
+                    <input type="text" placeholder="Type in your answer"></input>
+                    <button id="check1" class="buttons">Confirm answer</button>
+                    <br><br><br><br>
+
+
+                    What is the name of the tequila that Gus, Jesse and Mike gave to Don Eladio?
+                    <p id="feedback3"></p>
+                    <input type="text" placeholder="Type in your answer"></input>
+                    <button id="check2" class="buttons">Confirm answer</button>
+                    <br><br><br><br>
+                </h3>
+            </div>
+
+        </div>
+    </body>
+</html>

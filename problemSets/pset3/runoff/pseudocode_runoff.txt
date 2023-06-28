@@ -1,0 +1,13 @@
+1. Check if there are candidates in argv[1-9]
+
+2. Populate array of candidates (data structure includes
+    NAME, VOTES, ELIMINATED(bool)
+
+3. Prompt the user for choices
+
+4. If there is any candidate who got majority of preferences
+    -Print candidate NAME
+
+5. Else, eliminate Candidate with least votes or lowest ranked preference
+
+6. Repeat from line 4
